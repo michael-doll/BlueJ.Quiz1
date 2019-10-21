@@ -1,4 +1,5 @@
- 
+ import java.util.regex.Matcher; 
+import java.util.regex.Pattern; 
 
 public class LoopFun
 {
@@ -30,7 +31,14 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
+          StringBuilder sb = new StringBuilder(); 
+          
+        Pattern p = Pattern.compile("\\b[a-zA-Z]"); 
+        Matcher m = p.matcher(phrase); 
+        while(m.find()){
+            sb.append(m.group());
+        }
+          return sb.toString().toUpperCase();
       }
 
       /**
@@ -46,23 +54,8 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-/*          char [] wordArr = word.toCharArray();
-          String alph ="abcdefghijklmnopqrstuvwxyz";
-          char[] alphArr = alph.toCharArray();
-          int charCount = 0; 
-          while(charCount < wordArr.length){
-          for(int i =0; i < alphArr.length;i++){
-              if(alphArr[i] == wordArr[charCount]){
-                  if(alphArr[i] == 'x'){
-                      //Ran out of time
-                    }
-              wordArr[charCount] = alphArr[i];
-            }
+          return null;
         }
-    }
-        String encryption = new String(wordArr);
-        return encryption; 
-    }*/
-    return null;
+    
 }
-}
+
