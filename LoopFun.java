@@ -19,7 +19,6 @@ public class LoopFun
             for(i =1;i<=number;i++){
                 returnFactVal *=i;
             }
-     
           return returnFactVal;
       }
 
@@ -31,8 +30,7 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          StringBuilder sb = new StringBuilder(); 
-          
+        StringBuilder sb = new StringBuilder(); 
         Pattern p = Pattern.compile("\\b[a-zA-Z]"); 
         Matcher m = p.matcher(phrase); 
         while(m.find()){
@@ -54,8 +52,21 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          //Passes but I really don't like what's going on here
+        char [] wordArr = word.toCharArray();
+        String alph ="abcdefghijklmnopqrstuvwxyz";
+        for(int i = 0; i < word.length(); i++){
+            for (int j =0; j<alph.length(); j++){
+                if(j>22 && word.charAt(i) == alph.charAt(j) ){
+                    wordArr[i] = alph.charAt((j+3)-26);
+                    
+                }else if(word.charAt(i) == alph.charAt(j)){
+                    wordArr[i] = alph.charAt(j+3);
+                    
+                }
+            }
         }
-    
+        return new String(wordArr); 
+    }
 }
 
